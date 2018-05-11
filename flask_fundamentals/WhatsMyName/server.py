@@ -6,15 +6,10 @@ def index():
   return render_template("index.html")
 # this route will handle our form submission
 # notice how we defined which HTTP methods are allowed by this route
-@app.route('/users', methods=['POST'])
-def create_user():
-   print ("Got Post Info")
-   # we'll talk about the following two lines after we learn a little more
-   # about forms
+@app.route('/process', methods=['POST'])
+def getName():
    name = request.form['name']
-   email = request.form['email']
-   # Does this work?  Yes, but Wrong thing to do
-   return render_template('success.html')
+   print ("Got Name", name)
    # redirects back to the '/' route
-   #return redirect('/')
+   return redirect('/')
 app.run(debug=True) # run our server

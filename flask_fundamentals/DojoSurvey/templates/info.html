@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Dojo Survey Data</title>
+</head>
+<body>
+    <h1 class='infohdr'>Submitted Info</h1>
+    <main>
+        <section>
+            <h2>Name</h2>
+            <h2>Location</h2>
+            <h2>Language</h2>
+            <h2>Comment</h2>
+        </section>
+        <section>
+            <h2>{{name}}</h2>
+            <h2>{{location}}</h2>
+            <h2>{{lang}}</h2>
+            <h2>{{comment}}</h2>
+        </section>
+    </main>
+</body>

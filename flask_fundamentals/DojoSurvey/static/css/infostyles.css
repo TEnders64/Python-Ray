@@ -1,0 +1,12 @@
+
+h1 {
+    background-color: pink;
+    text-decoration: underline;
+}
+section {
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+

@@ -1,0 +1,34 @@
+
+
+.wrapper {
+    margin: 0px auto;
+    width: 720px;
+    background-color: palegreen;
+}
+.spacer {
+    height: 7px;
+}
+
+form {
+    width: 187px;
+}
+label[for="yourname"] {
+    margin-right: 24px;
+}
+label[for="location"] {
+    margin-right: 5px;
+}
+textarea {
+    width: 100%;
+}
+main h1 {
+    background-color: pink;
+    text-decoration: underline;
+}
+section {
+    width: 300px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
