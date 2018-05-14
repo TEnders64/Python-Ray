@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+    <script type="text/javascript" src="../static/js/jquery-3.2.1.js"></script>
+    <style>
+        .red { color: red;}
+        .green {color: green;}
+        .blue {color:blue;}
+        
+        label { 
+            display:block;
+            font-weight: bold;
+        }
+        form div { 
+            display: inline-block;
+        }
+        form input {
+            display: block;
+            text-align: right;
+            width: 42px;
+        }
+        form div:first-child { 
+            width: 77px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("form input").blur(function(){
+                console.log(this.value);
+                var val = parseInt(this.value);
+                if (val>255 || val < 0) {
+                    console.log("Too Much");
+                    $('.messages').show();
+                } else {
+                    $('.messages').hide();
+                }
+            }) ;
+
+        }) // End doc ready
+    </script>
+    <title>Color Picker</title>
+</head>
+<body>
+    <h1>Color Picker</h1>
+    <form>
+        <div class="labels">
+            <label for="R" class="red">Red</label>
+            <label for="G" class="green">Green</label>
+            <label for="B" class="blue">Blue</label>
+        </div>
+        <div class="texts">
+            <input type="text" name="redval" id="R" value="0">
+            <input type="text" name="grnval" id="G" value="0">
+            <input type="text" name="blueval" id="B" value="0">
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+    <p hidden class="messages red">Values must be between 0 and 255</p>
+          
+</body>
+</html>

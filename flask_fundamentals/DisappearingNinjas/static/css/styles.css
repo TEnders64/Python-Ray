@@ -2,10 +2,10 @@
     margin: 0px auto;
 }
 img {
-    display: block;
-    margin: 0px auto;
-    width: 100px;
+    display: inline-block;
+    /* margin: 0px auto; */
+    width: 42px;
 }
 h1 {
-    color: red;
+    color: purple;
 }

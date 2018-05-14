@@ -7,10 +7,13 @@ def index():
   return render_template("default.html")
 # notice how we defined which HTTP methods are allowed by this route
 @app.route('/ninja', methods=['GET','POST'])
-def ShowOneNinja():
+def ShowAllNinja():
   print ("Showing Ninjas")
-  color = request.form['color']
-  print (color)
   # Does this work?  Yes, but Wrong thing to do
+  return render_template('showNinjas.html')
+@app.route('/ninja/<color>', methods=['GET','POST'])
+def ShowOneNinja(color):
+  color=color
+  print('Color from URL: ', color)
   return render_template('ninja.html', color = color)
 app.run(debug=True) # run our server

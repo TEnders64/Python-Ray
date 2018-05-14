@@ -1,16 +1,27 @@
 <!DOCTYPE html>
+<!-- Show a single ninja image -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" typce="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-    <title>Disappearing Ninjas Home</title>
+    <title>Ninja by Color</title>
 </head>
 <body>
     <div class="wrapper">
         <p>Color is {{color}}</p>
-
+        {% if color == 'blue': %}
+            <img src="{{ url_for('static', filename='images/leonardo.jpg') }}">
+        {% elif color == 'orange': %}
+            <img src="{{ url_for('static', filename='images/michelangelo.jpg') }}">
+        {% elif color == 'red': %}
+            <img src="{{ url_for('static', filename='images/raphael.jpg') }}">
+        {% elif color == 'purple': %}
+            <img src="{{ url_for('static', filename='images/donatello.jpg') }}">
+        {% else: %}
+            <img src="{{ url_for('static', filename='images/notapril.jpg') }}">
+        {% endif %}
     </div> <!-- End wrapper -->
 </body>
 </html>        
