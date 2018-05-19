@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        form {
+            display: inline-block;
+        }
+    </style>
+    <title>Rock, Paper, Scissors</title>
+</head>
+<body>
+
+    <form method="post" action="/process_play" id="Rock">
+        <input type="hidden" name="choice" value="Rock"> 
+        <input type="submit" value="Rock"> 
+    </form>
+    <form method="post" action="/process_play" id="Paper">
+        <input type="hidden" name="choice" value="Paper"> 
+        <input type="submit" value="Paper"> 
+    </form>
+    <form method="post" action="/process_play" id="Scissors">
+        <input type="hidden" name="choice" value="Scissors"> 
+        <input type="submit" value="Scissors"> 
+    </form>    
+</body>
+</html>

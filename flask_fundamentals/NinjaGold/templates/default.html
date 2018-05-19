@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Gold</title>
+</head>
+<body>
+    <form method = "post" action="/process_money">
+        <input type='hidden' name = 'action' value='Farm'>
+        <input type='submit' value='Farm'>
+    </form>
+    <form method = "post" action="/process_money">
+        <input type='hidden' name = 'action' value='Cave'>
+        <input type='submit' value='Cave'>
+    </form>
+    <p>Current money is {{money}}</p>
+    
+</body>
+</html>

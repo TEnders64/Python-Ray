@@ -1,25 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- The actual Flask template -->
+<!-- Open question: This never routes back to '/'.  How can be routes back to the default page WITH the new RGB value? --> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script>
-    
+    <title>Color Picker</title>
+
     <script>
         $(document).ready(function(){
+            var rgbval = parseInt($('#rgb').text()); // Get the input rgb value
+            if ( rgbval >= 0) {
+                console.log("RGBVal = ", rgbval);
+                var bval = rgbval % 256;
+                rgbval = (rgbval-bval) / 256;
+                var gval = rgbval % 256;
+                var rval = (rgbval-gval) / 256;
+                console.log(rval, gval, bval);
+                if (rval <=255) {
+                    $("body").css("background-color", `rgb(${rval},${gval},${bval})`);
+                }
+            }
 
-        })
+            $("form input").blur(function(){
+                console.log(this.value);
+                var val = parseInt(this.value);
+                if (val>255 || val < 0) {
+                    console.log("Too Much");
+                    $('.messages').show();
+                } else {
+                    $('.messages').hide();
+                }
+            }) ;
+            $('form').submit(function(e) {
+                // e.preventDefault();
+                var rval = parseInt($('input[name="redval"]').val());
+                var gval = parseInt($('input[name="grnval"]').val());
+                var bval = parseInt($('input[name="bluval"]').val());
+                console.log(rval, gval, bval);
+                if ((rval<0 ||rval>255)||(gval<0||gval>255)||(bval<0||bval>255)) {
+                    console.log("Invalid values");
+                    $('.messages').show();
+                    return false;
+                } else {
+                    $('.messages').hide();                  
+                    // Red is high order byte, blue low
+                    var RGBval = bval+(gval*256)+(rval*256*256);
+                    console.log(RGBval);
+                    $('input[name="RGBVal"]').val(RGBval).change();
+                }
+                console.log("RGBVal: ",$('#rgb').val());
+                return;   
+            }) // End form submit 
+
+        }) // End doc ready
     </script>
-    <title>Color Picker</title>
+        
 </head>
 <body>
     <h1>Color Picker</h1>
-    <form>
-        <label for="R" class="red">Red</label>
-        <input type="text" name="redval" id="R" value="0">
+    <form action="/SetBckgnd" method="post">
+        <div class="labels">
+            <label for="R" class="red">Red</label>
+            <label for="G" class="green">Green</label>
+            <label for="B" class="blue">Blue</label>
+        </div>
+        <div class="texts">
+            <input type="text" name="redval" id="R" value="0">
+            <input type="text" name="grnval" id="G" value="0">
+            <input type="text" name="bluval" id="B" value="0">
+            <input hidden type="text" name="RGBVal" id="RGBVal" value="0">
+        </div>
+        <input type="submit" value="Submit">
     </form>
+    <p hidden class="messages red">Values must be between 0 and 255</p>
+    <h3>Hello</h3>
+    <h3 id = "rgb">{{RGBVal}}</h3>
+
           
 </body>
 </html>

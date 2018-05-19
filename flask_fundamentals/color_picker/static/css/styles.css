@@ -1,10 +1,27 @@
-label {
-    width: 84px;
-}
-body {
-    background-color: palegreen;
-}
-.red {
-    color:red;
-    width: 121px;
-}
+
+       
+       .red { color: red;}
+       .green {color: green;}
+       .blue {color:blue;}
+       
+       #RGBVal {
+           display:none;
+       }
+       label { 
+           display:block;
+           font-weight: bold;
+       }
+       form div { 
+           display: inline-block;
+       }
+       form input {
+           display: block;
+           text-align: right;
+           width: 42px;
+       }
+       form div:first-child { 
+           width: 255px;
+       }
+       /* body {
+           background-color: rgb(71, 167, 84);
+       } */
