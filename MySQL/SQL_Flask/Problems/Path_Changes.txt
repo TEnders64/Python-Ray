@@ -1,0 +1,50 @@
+
+Before all installations:
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32
+\WindowsPowerShell\v1.0\;c:\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program F
+iles\Git\cmd;C:\Program Files (x86)\MySQL\MySQL Utilities 1.6\;C:\Program Files\
+MySQL\MySQL Server 5.7\bin;C:\Users\Dell\AppData\Local\Programs\Python\Python36-
+32\Scripts\;C:\Users\Dell\AppData\Local\Programs\Python\Python36-32\;C:\Program
+Files\Microsoft VS Code\bin;C:\MinGW\msys\1.0\bin
+
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32
+\WindowsPowerShell\v1.0\;c:\bin;C:\Program Files (x86)\Skype\Phone\;C:\Program F
+iles\Git\cmd;C:\Program Files (x86)\MySQL\MySQL Utilities 1.6\;C:\Program Files\
+MySQL\MySQL Server 5.7\bin;C:\Users\Dell\AppData\Local\Programs\Python\Python36-
+32\Scripts\;C:\Users\Dell\AppData\Local\Programs\Python\Python36-32\;C:\Program
+Files\Microsoft VS Code\bin;C:\MinGW\msys\1.0\bin
+
+After install - inside Flask env
+(flaskEnv)  path
+PATH=D:\Search\OnlineTeaching\CodingDojo\DojoAssignments\Python\myEnvironments\f
+laskEnv\Scripts;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Activ
+eState Komodo Edit 10\;C:\Perl64\site\bin;C:\Perl64\bin;C:\Windows\system32;C:\W
+indows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\b
+in;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Git\cmd;C:\Program Files
+ (x86)\MySQL\MySQL Utilities 1.6\;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:
+\Users\Dell\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\Dell\App
+Data\Local\Programs\Python\Python36-32\;C:\Program Files\Microsoft VS Code\bin;C
+:\MinGW\msys\1.0\bin
+
+After install - outside Flask env
+PATH=C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\ActiveState Komo
+do Edit 10\;C:\Perl64\site\bin;C:\Perl64\bin;C:\Windows\system32;C:\Windows;C:\W
+indows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;c:\bin;C:\Progr
+am Files (x86)\Skype\Phone\;C:\Program Files\Git\cmd;C:\Program Files (x86)\MySQ
+L\MySQL Utilities 1.6\;C:\Program Files\MySQL\MySQL Server 5.7\bin;C:\Users\Dell
+\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\Dell\AppData\Local\
+Programs\Python\Python36-32\;C:\Program Files\Microsoft VS Code\bin;C:\MinGW\msy
+s\1.0\bin
+
+
+
+Searches:
+"pip install MySQL-python" "Python 3.6"
+
+django SQLAlchemy
+
+"Failed building wheel for mysqlclient" "Windows 7"
+
+Installing Django
+Docs
+https://docs.djangoproject.com/en/2.0/faq/install/#faq-python-version-support

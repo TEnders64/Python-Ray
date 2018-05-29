@@ -5,47 +5,45 @@ app = Flask(__name__)
 app.secret_key = 'Godzilla'
 @app.route('/', methods=['GET','POST'])
 def default():
+    session['hint'] = 'na'
     if 'num' in session:
         print("Num has value ", session['num'])
         if 'guess' in session:
             print("At root Guess is ",session['guess'])
             if session['guess'].isnumeric():
                 guess = int(session['guess'])
+                num = int(session['num'])
+                if guess == num:
+                    session['hint'] = 'equal'
+                elif guess > num:
+                    session['hint'] = 'high'
+                elif guess < num:
+                    session['hint'] = 'low'
+                print(session['hint'])
+                if session['hint'] == 'equal':
+                    flash("Success! Your guess of " + session['guess'] + " was correct")
+                if session['hint'] == 'high':
+                    flash("Sorry. Your guess of " + session['guess'] + " was high")
+                if session['hint'] == 'high':
+                    flash("Sorry. Your guess of " + session['guess'] + " was low")
+                return redirect('/')                    
     else:
         random.seed(None)
         rnum = random.randrange(0, 101)
         session['num'] = rnum
         print ("Random Number: ", session['num'])
-    return render_template("default.html")
+    return render_template("default.html", hint=session['hint'])
 
 @app.route('/guess', methods=['POST'])
 def guess ():
-    session['hint'] = 'na'
     session['guess'] = request.form['guess']
     print ("Guess:", session['guess'])
-    if session['guess'].isnumeric():
-        guess = int(session['guess'])
-        num = int(session['num'])
-        if guess == num:
-            session['hint'] = 'equal'
-        elif guess > num:
-            session['hint'] = 'high'
-        elif guess < num:
-            session['hint'] = 'low'
-        print(session['hint'])
-        if session['hint'] == 'equal':
-            flash("Success! Your guess of " + session['guess'] + " was correct")
-        if session['hint'] == 'high':
-            flash("Sorry. Your guess of " + session['guess'] + " was high")
-        if session['hint'] == 'low':
-            flash("Sorry. Your guess of " + session['guess'] + " was low")
     return redirect('/')
-# Game restart here
+# Game must start here
 @app.route('/restart', methods=['GET','POST'])
 def restart():
     session.pop('num', None)
     session.pop('guess', None)
-    if 'hint' in session:
-        session.pop('hint', None)
+    session.pop('hint', None)
     return redirect('/')
 app.run(debug=True)

@@ -1,0 +1,9 @@
+
+error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C+
++ Build Tools": http://landinghub.visualstudio.com/visual-cpp-build-tools
+
+
+Soln:
+https://stackoverflow.com/questions/48541801/microsoft-visual-c-14-0-is-required-get-it-with-microsoft-visual-c-build-t
+
+4- now go to your cmd and type: pip3 install misaka

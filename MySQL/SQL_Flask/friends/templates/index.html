@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="static/css/styles.css"> -->
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script> -->
+    <script src='../static/js/jquery-3.2.1.js'></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <script>
+        $(document).ready(function(){
+            $('#getFriend').submit(function(){
+                // event.preventDefault();
+                var action_src = $('input[name="friendID"]').val();
+                // var thisForm = $('#getFriendFrm').val();
+                var urlLink = "/friends/" + action_src;
+                // thisForm.action = "/friends/2";
+                this.action = urlLink;
+                console.log(urlLink);
+                // return false;
+            }) // End submit
+            $('#update').submit(function(){
+                var action_src = $('input[name="updateid"]').val();
+                var urlLink = "/update_friend/" + action_src;
+                this.action = urlLink;
+                console.log(urlLink);
+            }) // End update
+            $('#delFriend').submit(function(){
+                var action_src = $('input[name="delID"]').val();
+                var urlLink = "/delete_friend/" + action_src;
+                this.action = urlLink;
+                console.log(urlLink);
+            }) // End Delete
+        }) // End Doc ready
+    </script>
+    <title>Friends</title>
+</head>
+<body>
+<!-- we can use the line below to see all of our data in our template -->
+{{ all_friends }} 
+{{ one_friend }}
+<h1>These are all my friends!</h1>
+<!-- with all the data we can then construct a more structured output -->
+{% for friend in all_friends: %}
+   <p>ID: {{ friend['id'] }}</p>
+   <p>First Name: {{ friend['first_name'] }}&nbsp&nbsp&nbsp</p>
+   <p>Last Name: {{ friend['last_name'] }}&nbsp&nbsp&nbsp</p>
+   <p>Occupation: {{ friend['occupation'] }}</p>
+   <!-- <hr> -->
+{% endfor %}
+    <h2>Add a Friend</h2>
+    <form action='/friends' method='POST' >
+      <label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+      <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+      <label for="occupation">Occupation:<input type="text" name="occupation" id="occupation"></label>
+      <input type="submit" value="Add">
+    </form>
+    <h2> Get a friend by ID</h2>
+    <form id="getFriend" action = "/friends/1" method = "GET">
+        <label for"friendID">Friend ID: <input type='text' name = 'friendID' id = 'friendID'></label>
+        <input type="submit" value="Get">
+    </form>
+    <h2> Update a friend by ID </h2>
+    <form id="update" action='/update_friend' method='POST' >
+        <label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+        <label for="last_name">Last Name:<input type="text" name="last_name" id="last_name"></label>
+        <label for="occupation">Occupation:<input type="text" name="occupation" id="occupation"></label>
+        <label for="updateid">id:<input type="text" name="updateid" id="updateid"></label>
+        <input type="submit" value="Update">
+      </form>
+      <h2> Delete a friend by ID</h2>
+      <form id="delFriend" action = "/delete_friend/" method = "GET">
+          <label for"delID">Friend ID: <input type='text' name = 'delID' id = 'delID'></label>
+          <input type="submit" value="Delete">
+      </form>
+  
+  </body>
+  </html>
