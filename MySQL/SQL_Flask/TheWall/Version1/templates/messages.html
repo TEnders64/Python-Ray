@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- The Wall -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -8,30 +9,15 @@
     <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script> -->
     <script src='../static/js/jquery-3.2.1.js'></script>
     <link  tel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-    <title>Email Validation</title>
+    <title>Coding Dojo Wall Messages</title>
     <script>
         $(document).ready(function(){
+            console.log($('#userID').text());
 
         }) // End Doc ready
     </script>
-    
 </head>
 <body>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <p id='failure'>{{message}}</p>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-
-    <h2>Enter Email</h2>
-    <form action='/process' method='POST' >
-      <label for="email">Email:<input type="text" name="email" id="email"></label>
-      <input type="submit" value="Add">
-    </form>
-
-    {{count}}
-
-  </body>
-  </html>
+    <div id="userID" hidden>{{userID}}</div>
+</body>
+</html>

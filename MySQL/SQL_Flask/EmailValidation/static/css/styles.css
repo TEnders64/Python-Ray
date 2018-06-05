@@ -8,3 +8,11 @@ p {
 #occupation {
     width: 97px;
 }
+#failure {
+    background-color: red;
+    color: white;
+}
+#success {
+    background-color: green;
+    color: black;
+}

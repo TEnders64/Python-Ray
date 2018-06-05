@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- The Wall -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="static/css/styles.css"> -->
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script> -->
+    <script src='../static/js/jquery-3.2.1.js'></script>
+    <link  rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Coding Dojo Wall Messages</title>
+    <script>
+        $(document).ready(function(){
+            console.log($('#userID').text());
+ 
+        }) // End Doc ready
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="userID" hidden>{{userID}}</div>
+        <form id="logout" action = "/" method='get'>
+            <input type='submit' value='Logout'>
+        </form>
+        <h3>Post a Message</h3>
+        <form action="/postMsg" id="postMsg" method="POST">
+            <textarea name="message" id="message" cols="42" rows="3"></textarea>
+            <input type='submit' id="postButton" value ='Post Message'>
+        </form>
+        <hr>
+        <!-- {{messages}} -->
+
+        {% for message in messages %}
+>>>>> Now put in the Comments - 
+            {% if message['type'] == 'message' %}
+                <p class="msgHdr">{{message['first_name']}}   -   {{message['created_at']}}</p>
+                <p class="msgContent">{{message['content']}}</p>
+                <h3 class="commentHdr">Post a Comment</h3>
+                <form action="/postComment" class="postComment" method="POST">
+                    <textarea name="message" class="comment" cols="35" rows="3"></textarea>
+                    <input type='submit' class="commentButton" value ='Post Comment'>
+                </form>
+            {% endif %}
+        {% endfor %}
+    </div> <!-- End Wrapper -->
+    
+</body>
+</html>

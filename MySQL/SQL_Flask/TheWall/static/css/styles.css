@@ -1,0 +1,25 @@
+.wrapper {
+    outline: 1px dashed red;
+    width: 920px;
+    margin: 0px auto;
+}
+#logout {
+    margin-left: 865px;
+}
+.msgHdr{
+    margin-bottom: 0px;
+}
+.msgContent {
+    margin: 0px 0px 0px 21px;
+    width: 287px;
+}
+textarea {
+    display: block;
+}
+#postButton {
+    display: block;
+    margin-left: 216px;
+}
+.postComment, .commentHdr {
+    margin-left: 20px;
+}

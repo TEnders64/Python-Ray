@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link rel="stylesheet" href="static/css/styles.css"> -->
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.2.1.js') }}"></script> -->
+    <script src='../static/js/jquery-3.2.1.js'></script>
+    <link  tel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <title>Login and Registration</title>
+    <script>
+        $(document).ready(function(){
+            $('#register').submit(function(){
+                // event.preventDefault();
+                var email = $('input[name="email"]').val();
+                var first_name = $('input[name="first_name"]').val();
+                var last_name = $('input[name="last_name"]').val();
+                var password = $('input[name="password"]').val();
+                var passwordConf = $('input[name="passwordConf"]').val();
+                if (
+                        (/(.+)@(.+){2,}\.(.+){2,}/.test(email)) && 
+                        (first_name.length > 2) && (last_name.length > 2) &&
+                        (/^[a-zA-Z]/.test(first_name)) &&
+                        (/^[a-zA-Z]/.test(last_name)) &&
+                        (passwordConf == password)
+                    ) { console.log ("Got valid data")
+                } else {
+                    console.log("Invalid data");
+                    return false;
+                }
+            }) // End register submit
+        }) // End Doc ready
+    </script>
+    
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p id='flash_msg'>{{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h2>Register New User</h2>
+    <form action='/register' id="register" method='POST' >
+        <label for="first_name">First Name<input type="text" name="first_name" id="first_name"></label>
+        <label for="last_name">Last Name<input type="text" name="last_name" id="last_name"></label>
+        <label for="email">Email:<input type="text" name="email" id="email"></label>
+        <label for="password">Password:<input type="text" name="password" id="password"></label>
+        <label for="passwordConf">Password Confirmation:<input type="text" name="passwordConf" id="passwordConf"></label>
+        <input type="submit" value="Register">
+    </form>
+    <h2>Login</h2>
+    <form action='/login' id="login" method='POST' >
+        <label for="email">Email:<input type="text" name="email" id="email"></label>        
+        <label for="password">Password:<input type="text" name="password" id="password"></label>
+        <input type="submit" value="Login">
+    </form>
+
+
+</body>
+</html>

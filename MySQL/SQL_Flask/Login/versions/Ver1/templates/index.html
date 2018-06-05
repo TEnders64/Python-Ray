@@ -20,18 +20,21 @@
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
-                <p id='failure'>{{message}}</p>
+                <p id='flash_msg'>{{message}}</p>
             {% endfor %}
         {% endif %}
     {% endwith %}
 
-    <h2>Enter Email</h2>
-    <form action='/process' method='POST' >
-      <label for="email">Email:<input type="text" name="email" id="email"></label>
-      <input type="submit" value="Add">
+    <h2>Register New User</h2>
+    <form action='/register' method='POST' >
+        <label for="first_name">First Name<input type="text" name="first_name" id="first_name"></label>
+        <label for="last_name">Last Name<input type="text" name="last_name" id="last_name"></label>
+        <label for="email">Email:<input type="text" name="email" id="email"></label>
+        <label for="password">Password:<input type="text" name="password" id="password"></label>
+        <label for="passwordConf">Password Confirmation:<input type="text" name="passwordConf" id="passwordConf"></label>
+        <input type="submit" value="Login">
     </form>
 
-    {{count}}
 
-  </body>
-  </html>
+</body>
+</html>
